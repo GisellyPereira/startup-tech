@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Startup Tech
 
-## Getting Started
+Landing page moderna e responsiva desenvolvida com Next.js, React e TypeScript.
 
-First, run the development server:
+## 🚀 Tecnologias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 16** - Framework React com App Router
+- **React 19** - Biblioteca UI
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS 4** - Estilização
+- **Framer Motion** - Animações
+- **Three.js** - Efeitos 3D (LiquidEther)
+- **Radix UI** - Componentes acessíveis
+
+## 📁 Estrutura do Projeto
+
+```
+startup-tech/
+├── app/                    # App Router do Next.js
+│   ├── layout.tsx         # Layout raiz
+│   ├── page.tsx           # Página principal
+│   └── globals.css        # Estilos globais
+├── components/            # Componentes React
+│   ├── effects/          # Efeitos visuais
+│   │   ├── LiquidEther.tsx    # Efeito de fundo líquido
+│   │   ├── StarBorder.tsx     # Efeito de borda animada
+│   │   └── index.ts
+│   ├── layout/           # Componentes de layout
+│   │   ├── Header.tsx    # Cabeçalho com navegação
+│   │   └── index.ts
+│   ├── sections/         # Seções da página
+│   │   ├── Hero.tsx      # Hero section
+│   │   └── index.ts
+│   └── ui/               # Componentes UI base
+│       └── button.tsx
+├── config/               # Configurações
+│   ├── animations.ts     # Configurações de animações
+│   ├── liquidEther.ts   # Configurações do LiquidEther
+│   └── index.ts
+├── constants/            # Constantes
+│   ├── navigation.ts     # Itens de navegação
+│   ├── theme.ts          # Cores e tema
+│   └── index.ts
+├── lib/                  # Utilitários
+│   └── utils.ts          # Funções auxiliares
+└── types/                # Definições de tipos TypeScript
+    └── components.ts     # Tipos de componentes
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Características
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- ✨ **Efeito LiquidEther** - Background líquido animado com Three.js
+- ⭐ **Star Border** - Efeito de borda animada nos botões
+- 🎯 **Totalmente Responsivo** - Adaptável a todos os tamanhos de tela
+- ⚡ **Performance Otimizada** - Lazy loading e code splitting
+- 🎭 **Animações Suaves** - Transições com Framer Motion
+- ♿ **Acessível** - Componentes com ARIA labels
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Desenvolvimento
 
-## Learn More
+```bash
+# Instalar dependências
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# Iniciar servidor de desenvolvimento
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Build para produção
+npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Iniciar servidor de produção
+npm start
 
-## Deploy on Vercel
+# Lint
+npm run lint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Scripts Disponíveis
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Gera o build de produção
+- `npm run start` - Inicia o servidor de produção
+- `npm run lint` - Executa o linter
+
+## 🎯 Próximos Passos
+
+- [ ] Implementar seções de navegação (Serviços, Sobre, FAQ, Contato)
+- [ ] Adicionar formulário de contato
+- [ ] Otimizar SEO
+- [ ] Adicionar testes
+- [ ] Melhorar documentação
+
+## 📄 Licença
+
+Este projeto é privado.

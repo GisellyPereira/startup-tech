@@ -17,13 +17,19 @@ export const metadata: Metadata = {
   description: "Transformamos ideias em realidade através de tecnologia de ponta e inovação constante.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+/**
+ * Root Layout
+ * 
+ * Layout raiz da aplicação Next.js
+ * Define fontes, metadados e estrutura HTML base
+ */
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

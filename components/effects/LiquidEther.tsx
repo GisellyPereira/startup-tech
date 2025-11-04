@@ -1013,7 +1013,7 @@ export default function LiquidEther({
     
     container.style.overflow = container.style.overflow || 'hidden';
     container.style.pointerEvents = 'auto';
-    container.style.position = 'fixed';
+    container.style.position = 'absolute';
     container.style.top = '0';
     container.style.left = '0';
     container.style.width = '100%';
