@@ -10,7 +10,7 @@ import { COLORS } from "@/constants/theme";
 import { HEADER_ANIMATION, NAV_ITEM_ANIMATION, NAV_ITEM_TRANSITION, HOVER_SCALE } from "@/config/animations";
 import type { BaseComponentProps } from "@/types/components";
 
-interface HeaderProps extends BaseComponentProps {}
+type HeaderProps = BaseComponentProps;
 
 /**
  * Header Component
@@ -110,7 +110,7 @@ export function Header({ className }: HeaderProps) {
           <StarBorder
             as="a"
             href="#contact"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const target = document.querySelector('#contact');
               if (target) {
@@ -129,10 +129,10 @@ export function Header({ className }: HeaderProps) {
             style={{
               background: COLORS.gradient.button,
             }}
-            onMouseEnter={(e) => {
+            onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
               e.currentTarget.style.background = COLORS.gradient.buttonHover;
             }}
-            onMouseLeave={(e) => {
+            onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
               e.currentTarget.style.background = COLORS.gradient.button;
             }}
           >

@@ -3,6 +3,11 @@
 import { useEffect, useId, useLayoutEffect, useRef } from 'react';
 import './ElectricBorder.css';
 
+// Tipo para elementos SVG de animação que possuem o método beginElement
+interface SVGAnimationElement extends Element {
+  beginElement?: () => void;
+}
+
 interface ElectricBorderProps {
   children: React.ReactNode;
   color?: string;
@@ -69,9 +74,10 @@ const ElectricBorder = ({
 
     requestAnimationFrame(() => {
       [...dyAnims, ...dxAnims].forEach(a => {
-        if (typeof (a as any).beginElement === 'function') {
+        const animElement = a as SVGAnimationElement;
+        if (typeof animElement.beginElement === 'function') {
           try {
-            (a as any).beginElement();
+            animElement.beginElement();
           } catch {
             console.warn('ElectricBorder: beginElement failed, this may be due to a browser limitation.');
           }
