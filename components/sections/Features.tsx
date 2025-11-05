@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { Card, CardContent } from "@/components/ui/card";
 import { COLORS } from "@/constants/theme";
 import { SERVICES } from "@/constants/features";
 import type { BaseComponentProps } from "@/types/components";
+import { ServiceCard } from "./ServiceCard";
 
 /**
  * Features/Services Section Component
@@ -15,7 +15,7 @@ import type { BaseComponentProps } from "@/types/components";
  * Seção de serviços da empresa destacando:
  * - Conteúdo textual à esquerda
  * - Imagem de robô à direita
- * - Cards de serviços profissionais
+ * - Cards de serviços profissionais com ElectricBorder
  * - Animações suaves
  * 
  * @param className - Classes CSS adicionais
@@ -23,6 +23,7 @@ import type { BaseComponentProps } from "@/types/components";
 export function Features({ className }: BaseComponentProps) {
   return (
     <section
+      id="services"
       className={cn(
         "relative min-h-screen flex items-center justify-center",
         "px-4 sm:px-6 lg:px-8",
@@ -86,45 +87,15 @@ export function Features({ className }: BaseComponentProps) {
               criar soluções que impulsionam resultados reais para seu negócio.
             </motion.p>
 
-            {/* Services Cards Grid */}
-            <div className="grid sm:grid-cols-2 gap-3 lg:gap-4 pt-2">
-              {SERVICES.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <motion.div
-                    key={service.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: 0.5 + index * 0.05 }}
-                  >
-                    <Card className="group border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer h-full">
-                      <CardContent className="p-4">
-                        <div className="flex items-start gap-3">
-                          <div
-                            className="shrink-0 p-2 rounded-lg transition-all duration-300 group-hover:scale-110"
-                            style={{
-                              background: `linear-gradient(135deg, ${COLORS.primary}20, ${COLORS.secondary}20)`,
-                            }}
-                          >
-                            <div style={{ color: COLORS.primary }}>
-                              <Icon className="size-5" />
-                            </div>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-white font-semibold text-sm sm:text-base mb-1 group-hover:text-white transition-colors">
-                              {service.title}
-                            </h3>
-                            <p className="text-white/60 text-xs sm:text-sm leading-relaxed group-hover:text-white/80 transition-colors">
-                              {service.description}
-                            </p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
+            {/* Services Cards Grid - Altura uniforme garantida */}
+            <div className="grid sm:grid-cols-2 gap-3 lg:gap-4 pt-2 items-stretch">
+              {SERVICES.map((service, index) => (
+                <ServiceCard
+                  key={service.title}
+                  service={service}
+                  index={index}
+                />
+              ))}
             </div>
           </motion.div>
 
