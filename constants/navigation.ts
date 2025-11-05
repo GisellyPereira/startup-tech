@@ -6,9 +6,10 @@
 export const NAVIGATION_ITEMS = [
   { label: "Início", href: "#home" },
   { label: "Serviços", href: "#services" },
+  { label: "Resultados", href: "#stats" },
   { label: "Sobre", href: "#about" },
   { label: "FAQ", href: "#faq" },
-  { label: "Contato", href: "#contact" },
+  { label: "Clientes", href: "#testimonials" },
 ] as const;
 
 export const CTA_BUTTON_TEXT = "Fale Conosco";

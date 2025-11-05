@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 import { COLORS } from "@/constants/theme";
+import { SectionBadge } from "@/components/ui";
 import { SERVICES } from "@/constants/features";
 import type { BaseComponentProps } from "@/types/components";
 import { ServiceCard } from "./ServiceCard";
@@ -27,11 +28,19 @@ export function Features({ className }: BaseComponentProps) {
       className={cn(
         "relative min-h-screen flex items-center justify-center",
         "px-4 sm:px-6 lg:px-8",
-        "py-20 sm:py-32",
+        "pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20",
         "pointer-events-auto",
         className
       )}
     >
+      {/* Gradiente sutil no topo para complementar o fade do Hero */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-16 sm:h-20 lg:h-24 pointer-events-none"
+        style={{ 
+          zIndex: 1,
+          background: `linear-gradient(to bottom, rgba(6, 0, 16, 0.8) 0%, rgba(6, 0, 16, 0.4) 50%, transparent 100%)`
+        }}
+      />
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Side - Content */}
@@ -48,9 +57,8 @@ export function Features({ className }: BaseComponentProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 w-fit"
             >
-              <span className="text-xs text-white/70 font-medium">Nossos Serviços</span>
+              <SectionBadge label="Nossos Serviços" />
             </motion.div>
 
             {/* Title */}

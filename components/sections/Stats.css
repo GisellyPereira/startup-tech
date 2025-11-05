@@ -1,0 +1,276 @@
+/* Background com pontos de luz roxos esfumados */
+.stats-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stats-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Canto superior esquerdo */
+    radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.22) 0%, transparent 62%),
+    /* Canto superior direito */
+    radial-gradient(circle at 100% 0%, rgba(75, 58, 255, 0.18) 0%, transparent 62%),
+    /* Canto inferior esquerdo */
+    radial-gradient(circle at 0% 100%, rgba(177, 158, 239, 0.15) 0%, transparent 62%),
+    /* Canto inferior direito */
+    radial-gradient(circle at 100% 100%, rgba(124, 58, 237, 0.18) 0%, transparent 62%);
+  background-size: 500px 500px, 600px 600px, 550px 550px, 580px 580px;
+  background-position: -100px -100px, calc(100% + 100px) -100px, -100px calc(100% + 100px), calc(100% + 100px) calc(100% + 100px);
+  animation: float 25s ease-in-out infinite;
+  filter: blur(100px);
+}
+
+.stats-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Pontos de luz nos cantos */
+    radial-gradient(2px 2px at 5% 10%, rgba(124, 58, 237, 0.35), transparent),
+    radial-gradient(2px 2px at 95% 10%, rgba(75, 58, 255, 0.32), transparent),
+    radial-gradient(1.5px 1.5px at 8% 92%, rgba(177, 158, 239, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 92% 92%, rgba(124, 58, 237, 0.35), transparent),
+    /* Pontos nas bordas laterais */
+    radial-gradient(1px 1px at 2% 50%, rgba(124, 58, 237, 0.28), transparent),
+    radial-gradient(1px 1px at 98% 50%, rgba(75, 58, 255, 0.28), transparent);
+  background-size: 150px 150px;
+  background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, 0% 50%, 100% 50%;
+  animation: twinkle 18s ease-in-out infinite;
+  filter: blur(0.8px);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(10px, -10px) scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Stats Grid Container - Layout profissional */
+.stats-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .stats-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* Stat Card - Design limpo e minimalista */
+.stat-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Conteúdo do card */
+.stat-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Valor */
+.stat-value {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .stat-value {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stat-value {
+    font-size: 4rem;
+  }
+}
+
+.stat-suffix {
+  font-size: 0.7em;
+  font-weight: 700;
+  opacity: 0.95;
+  margin-left: 0.1em;
+}
+
+/* Label */
+.stat-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .stat-label {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stat-label {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Hover Content Styles - Design inspirado no React Bits */
+.hover-content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hover-content-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.hover-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 6px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: rgba(124, 58, 237, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+  line-height: 1.2;
+}
+
+.hover-main-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-top: 0.125rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .hover-main-text {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hover-main-text {
+    font-size: 1.375rem;
+  }
+}
+
+.hover-sub-text {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+  margin-top: 0.125rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.hover-extra-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.375rem;
+}
+
+.hover-icon-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.625rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.hover-icon-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.hover-icon-item svg {
+  width: 14px;
+  height: 14px;
+  color: rgba(124, 58, 237, 0.8);
+}
+

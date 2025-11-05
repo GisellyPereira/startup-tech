@@ -34,7 +34,7 @@ export default function LiquidEther({
   useEffect(() => {
     if (!mountRef.current) return;
 
-    function makePaletteTexture(stops) {
+    function makePaletteTexture(stops: string[]) {
       let arr;
       if (Array.isArray(stops) && stops.length > 0) {
         if (stops.length === 1) {
@@ -68,6 +68,19 @@ export default function LiquidEther({
     const bgVec4 = new THREE.Vector4(0, 0, 0, 0); // always transparent
 
     class CommonClass {
+      width: number;
+      height: number;
+      aspect: number;
+      pixelRatio: number;
+      isMobile: boolean;
+      breakpoint: number;
+      fboWidth: number | null;
+      fboHeight: number | null;
+      time: number;
+      delta: number;
+      container: HTMLElement | null;
+      renderer: THREE.WebGLRenderer | null;
+      clock: THREE.Clock | null;
       constructor() {
         this.width = 0;
         this.height = 0;

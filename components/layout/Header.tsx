@@ -38,20 +38,26 @@ export function Header({ className }: HeaderProps) {
       <nav
         className={cn(
           "flex items-center justify-between",
-          "gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6",
-          "px-2 sm:px-3 md:px-4 lg:px-6",
+          "px-4 sm:px-5 md:px-6 lg:px-8 xl:px-10",
           "py-2.5 sm:py-3 md:py-3.5 lg:py-4",
           "rounded-full",
-          "backdrop-blur-2xl bg-black/30 border border-white/10",
-          "shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]",
+          "backdrop-blur-2xl bg-black/40 border border-white/20",
+          "shadow-[0_8px_32px_0_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)]",
           "relative min-w-0 overflow-visible w-full"
         )}
       >
         {/* Logo */}
         <motion.a
           href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            const target = document.querySelector('#home');
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
           {...HOVER_SCALE}
-          className="flex items-center group shrink-0"
+          className="flex items-center group shrink-0 cursor-pointer mr-6 sm:mr-8 lg:mr-12 xl:mr-16"
         >
           <Image
             src="/logo-startup.png"
@@ -66,23 +72,31 @@ export function Header({ className }: HeaderProps) {
 
         {/* Navigation Links - Desktop */}
         <nav
-          className="hidden lg:flex items-center gap-0 xl:gap-0.5 flex-1 justify-center min-w-0 max-w-full"
+          className="hidden lg:flex items-center gap-2 xl:gap-3 flex-1 justify-center min-w-0 max-w-full"
           aria-label="Desktop navigation"
         >
           {NAVIGATION_ITEMS.map((item, index) => (
             <motion.a
               key={item.href}
               href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.querySelector(item.href);
+                if (target) {
+                  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
               {...NAV_ITEM_ANIMATION}
               transition={{
                 delay: NAV_ITEM_TRANSITION.baseDelay + index * NAV_ITEM_TRANSITION.increment,
               }}
               className={cn(
-                "relative px-1.5 xl:px-2 py-2 rounded-lg",
-                "text-white/80 hover:text-white",
-                "text-xs xl:text-sm font-medium",
-                "transition-colors duration-200",
-                "hover:bg-white/5 whitespace-nowrap shrink-0"
+                "px-2 xl:px-3 py-2",
+                "text-white/70 hover:text-white",
+                "text-sm xl:text-base font-medium",
+                "transition-colors duration-200 ease-out",
+                "whitespace-nowrap shrink-0",
+                "cursor-pointer"
               )}
             >
               {item.label}
@@ -91,17 +105,26 @@ export function Header({ className }: HeaderProps) {
         </nav>
 
         {/* CTA Button */}
-        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+        <div className="flex items-center gap-1 sm:gap-2 shrink-0 ml-6 sm:ml-8 lg:ml-12 xl:ml-16">
           {/* CTA Button with Star Border - Visible em mobile e desktop */}
           <StarBorder
-            as="button"
+            as="a"
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const target = document.querySelector('#contact');
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
             color={COLORS.white}
             speed="5s"
             thickness={1}
             className={cn(
               "flex",
               "transition-all duration-200",
-              "hover:scale-105 cursor-pointer shrink-0"
+              "hover:scale-105 cursor-pointer shrink-0",
+              "no-underline"
             )}
             style={{
               background: COLORS.gradient.button,
