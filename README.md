@@ -1,37 +1,40 @@
 # Startup Tech
 
-Landing page moderna e responsiva que apresenta serviços e resultados da Startup Tech com efeitos visuais avançados e foco em performance, acessibilidade e UX.
+Uma landing page simples e honesta para apresentar a Startup Tech. O objetivo é claro: explicar o que fazemos, mostrar nossos destaques e facilitar o contato — sem enrolação e com uma experiência fluida.
 
 ## 🔥 Demo
 
-Visite a versão hospedada do projeto:
-
 <p align="center">
-  <a href="https://statup-tech.netlify.app/" target="_blank" rel="noopener noreferrer"><b>➡️ Acessar a versão hospedada da Startup Tech</b></a>
+  <a href="https://statup-tech.netlify.app/" target="_blank" rel="noopener noreferrer"><b>➡️ Ver a página online</b></a>
   <br />
   <sub>https://statup-tech.netlify.app/</sub>
-  </p>
+</p>
 
-## 🚀 Tecnologias
+## O que você encontra aqui
 
-- **Next.js 16** (App Router)
-- **React 19**
-- **TypeScript 5**
-- **Tailwind CSS 4** (com `@tailwindcss/postcss`)
-- **Framer Motion** (animações)
-- **Three.js** (efeito 3D LiquidEther)
-- **Radix UI** (acessibilidade)
+- Seções diretas (Hero, serviços, resultados, depoimentos, contato) com navegação suave.
+- Conteúdo escrito para leitura rápida e CTAs claros.
+- Visual com um efeito líquido no fundo do Hero (renderizado só no cliente para não pesar no SSR).
 
-## 🎨 Recursos de Destaque
+## Como foi feito (versão curta)
 
-- ✨ Efeito de fundo líquido (LiquidEther) com WebGL, carregado apenas no cliente
-- ⭐ StarBorder animado em CTAs
-- 🧩 Componentização clara: `layout`, `sections`, `ui`, `effects`
-- 📱 Totalmente responsivo e pronto para telas altas/largas
-- ⚡ Otimizações: imports dinâmicos, separação de código e lazy
-- ♿ Acessibilidade: uso de ARIA e foco em contraste
+- “React bits”: componentes pequenos e reutilizáveis; composição > herança; hooks leves para interações (scroll suave, estados locais). Sem over-engineering.
 
-## 📁 Estrutura do Projeto
+### Framer Motion, na medida certa
+
+- Microinterações em entradas de seção, header e CTAs.
+- Transições sutis para guiar o olhar, sem “atrapalhar” o conteúdo.
+- Animações separadas da lógica para manter o código limpo.
+
+## Stack
+
+- Next.js 16 (App Router), React 19 e TypeScript 5
+- Tailwind CSS 4
+- Framer Motion (animações)
+- Three.js (efeito líquido)
+- Radix UI (acessibilidade)
+
+## 🗂️ Estrutura do projeto
 
 ```
 startup-tech/
@@ -51,15 +54,14 @@ startup-tech/
 └── types/                 # Tipos TypeScript
 ```
 
-## 🧱 Arquitetura de UI (Resumo)
+## Como a UI está organizada
 
-- `app/page.tsx`: organiza as seções e carrega o LiquidEther com `dynamic(..., { ssr: false })` para evitar SSR de WebGL.
-- `components/layout/Header.tsx`: navegação com Framer Motion e âncoras suaves.
-- `components/sections/*`: seções da landing (Hero, Features, Stats, About, FAQ, Testimonials, Contact, Footer).
-- `config/liquidEther.ts`: parâmetros do efeito (cores, força do mouse, resolução, etc.).
-- `constants/*`: conteúdo centralizado para navegação, tema, depoimentos, etc.
+- `app/page.tsx` orquestra as seções e carrega o efeito 3D com `dynamic(..., { ssr: false })`.
+- `components/sections/*` agrupa as áreas da página.
+- `components/ui/*` guarda peças pequenas (botões, etc.).
+- `config/*` e `constants/*` deixam números/cores/textos num só lugar.
 
-## 🛠️ Como Rodar Localmente
+## 🛠️ Como rodar localmente
 
 ```bash
 # 1) Instale as dependências
@@ -85,20 +87,19 @@ npm run lint
 - `npm start` — inicia o servidor de produção
 - `npm run lint` — executa o linter
 
-## 📈 Performance e Boas Práticas
+## 📈 O que fazemos para performar
 
-- Import dinâmico do efeito 3D para evitar SSR e reduzir TTFB
-- Reutilização de constantes e tema para reduzir duplicidade
-- Animações otimizadas e controladas via Framer Motion
-- Assets em `public/` para servir estático; manter imagens e vídeo otimizados
+- Import dinâmico do efeito 3D para não impactar SSR.
+- Lazy nas partes mais pesadas e código separado por seção.
+- Animações pontuais (sem bloquear interação nem layout).
 
-## 🔍 SEO (Sugestões)
+## 🔍 SEO (sugestões)
 
 - Expandir metadados em `app/layout.tsx` (Open Graph, Twitter Cards)
 - Adicionar `sitemap.xml` e `robots.txt`
 - Títulos/descrições por seção quando houver páginas adicionais
 
-## ✅ Roadmap
+## ✅ Próximos passos
 
 - [ ] Formulário de contato com validação e envio
 - [ ] Ajustes finos de SEO (OG/Twitter, sitemap, robots)
