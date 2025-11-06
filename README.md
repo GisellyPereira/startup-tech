@@ -2,18 +2,15 @@
 
 Landing page moderna e responsiva que apresenta serviços e resultados da Startup Tech com efeitos visuais avançados e foco em performance, acessibilidade e UX.
 
-## 🔥 Demo (Vídeo de Apresentação)
+## 🔥 Demo
 
-Assista ao vídeo de apresentação do projeto gravado e incluído no repositório:
+Visite a versão hospedada do projeto:
 
-<div align="center">
-  <video controls width="100%" style="max-width: 920px; border-radius: 12px; outline: none;" poster="public/logo-startup.png">
-    <source src="public/video-apresentacao.mp4" type="video/mp4" />
-    Seu navegador não suporta vídeo HTML5. Baixe o arquivo em: public/video-apresentacao.mp4
-  </video>
-</div>
-
-> Dica: ao publicar, o vídeo ficará disponível via `/video-apresentacao.mp4`.
+<p align="center">
+  <a href="https://statup-tech.netlify.app/" target="_blank" rel="noopener noreferrer"><b>➡️ Acessar a versão hospedada da Startup Tech</b></a>
+  <br />
+  <sub>https://statup-tech.netlify.app/</sub>
+  </p>
 
 ## 🚀 Tecnologias
 
