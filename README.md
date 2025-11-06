@@ -1,32 +1,27 @@
 # Startup Tech
 
-Uma landing page simples e honesta para apresentar a Startup Tech. O objetivo é claro: explicar o que fazemos, mostrar nossos destaques e facilitar o contato — sem enrolação e com uma experiência fluida.
-
+Uma landing page moderna e objetiva para apresentar a **Startup Tech** — clara no propósito, fluida na experiência e enxuta no código.  
+Focada em **transmitir valor com simplicidade**, sem distrações e com uma base sólida de performance e design.
 ## 🔥 Demo
 
-<p align="center">
+<p>
   <a href="https://statup-tech.netlify.app/" target="_blank" rel="noopener noreferrer"><b>➡️ Ver a página online</b></a>
-  <br />
-  <sub>https://statup-tech.netlify.app/</sub>
 </p>
 
-## O que você encontra aqui
 
-- Seções diretas (Hero, serviços, resultados, depoimentos, contato) com navegação suave.
-- Conteúdo escrito para leitura rápida e CTAs claros.
-- Visual com um efeito líquido no fundo do Hero (renderizado só no cliente para não pesar no SSR).
+## 🧭 **Visão geral**
 
-## Como foi feito (versão curta)
+Esta landing page foi pensada para **explicar o que fazemos em segundos**, **destacar resultados** e **convidar o usuário à ação**, tudo em um fluxo visual contínuo.  
 
-- “React bits”: componentes pequenos e reutilizáveis; composição > herança; hooks leves para interações (scroll suave, estados locais). Sem over-engineering.
+**Principais características:**
+- Estrutura direta (Hero, Serviços, Resultados, Depoimentos, Contato)
+- Copy otimizada para leitura rápida e CTAs claros
+- Efeito 3D fluido no Hero (renderizado apenas no cliente, sem custo de SSR)
+- Arquitetura modular e escalável em componentes independentes
 
-### Framer Motion, na medida certa
+---
 
-- Microinterações em entradas de seção, header e CTAs.
-- Transições sutis para guiar o olhar, sem “atrapalhar” o conteúdo.
-- Animações separadas da lógica para manter o código limpo.
-
-## Stack
+## ⚙️ **Stack técnica**
 
 - Next.js 16 (App Router), React 19 e TypeScript 5
 - Tailwind CSS 4
@@ -54,13 +49,6 @@ startup-tech/
 └── types/                 # Tipos TypeScript
 ```
 
-## Como a UI está organizada
-
-- `app/page.tsx` orquestra as seções e carrega o efeito 3D com `dynamic(..., { ssr: false })`.
-- `components/sections/*` agrupa as áreas da página.
-- `components/ui/*` guarda peças pequenas (botões, etc.).
-- `config/*` e `constants/*` deixam números/cores/textos num só lugar.
-
 ## 🛠️ Como rodar localmente
 
 ```bash
@@ -80,32 +68,5 @@ npm start
 npm run lint
 ```
 
-## 📝 Scripts
+<div align="center">Feito com 💜!</div>
 
-- `npm run dev` — inicia o servidor de desenvolvimento
-- `npm run build` — gera o build de produção
-- `npm start` — inicia o servidor de produção
-- `npm run lint` — executa o linter
-
-## 📈 O que fazemos para performar
-
-- Import dinâmico do efeito 3D para não impactar SSR.
-- Lazy nas partes mais pesadas e código separado por seção.
-- Animações pontuais (sem bloquear interação nem layout).
-
-## 🔍 SEO (sugestões)
-
-- Expandir metadados em `app/layout.tsx` (Open Graph, Twitter Cards)
-- Adicionar `sitemap.xml` e `robots.txt`
-- Títulos/descrições por seção quando houver páginas adicionais
-
-## ✅ Próximos passos
-
-- [ ] Formulário de contato com validação e envio
-- [ ] Ajustes finos de SEO (OG/Twitter, sitemap, robots)
-- [ ] Testes (unitários/integração)
-- [ ] Melhorias de acessibilidade (foco, navegação por teclado)
-
-## 📄 Licença
-
-Projeto privado. Todos os direitos reservados.
